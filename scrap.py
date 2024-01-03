@@ -36,17 +36,17 @@ with requests.session() as s :
             break  # No more data, exit the loop
 
         header = list(data[0].keys())
-        index = [header.index(i) for i in ['code', 'prenom', 'matriculeFiscale', 'frais_liv', 'frais_retour']]
+        index = [header.index(i) for i in ['code', 'name', 'matriculeFiscale', 'frais_liv', 'frais_retour']]
         
 
-        with open("output.csv", "a", newline="", encoding="utf-8") as csv_file:  # Use "a" to append to the file
-            Lheader = ['code', 'prenom', 'matriculeFiscale', 'frais_liv', 'frais_retour']
+        with open("clients.csv", "a", newline="", encoding="utf-8") as csv_file:  # Use "a" to append to the file
+            Lheader = ['code', 'name', 'matriculeFiscale', 'frais_liv', 'frais_retour']
             csv_writer = csv.DictWriter(csv_file, fieldnames=Lheader)
             if page ==1:
                 csv_writer.writeheader()  # Write header only for the first page
             for entry in data:
                 l = list(entry.values())
-                csv_writer.writerow({'code': l[index[0]], 'prenom': l[index[1]], 'matriculeFiscale': l[index[2]],
+                csv_writer.writerow({'code': l[index[0]], 'name': l[index[1]], 'matriculeFiscale': l[index[2]],
                                      'frais_liv': l[index[3]], 'frais_retour': l[index[4]]})
         page += 1
         
