@@ -7,7 +7,7 @@ import requests
 
 
 
-SECURE_URL='https://core.jax-delivery.com/api/colis?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL2NvcmUuamF4LWRlbGl2ZXJ5LmNvbS9hcGkvYXV0aC9sb2dpbiIsImlhdCI6MTcwNDMyMDY2MSwiZXhwIjoxNzA0NDY0NjYxLCJuYmYiOjE3MDQzMjA2NjEsImp0aSI6ImRBeDJ5MnMxRDJUbTZxWUYiLCJzdWIiOiIyNzMiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.s-dAVEzwprzpXlzuiepKGxtHaFhK_d9nGAUCnomiAK4&adresseLivraison=&cod=&code=&created_at=&depot=&is_echange=nonechange&description=&governorat=&nomContact=&referenceExterne=&statut_id=2&tel=&paye=&client_id=&livre_par=&verse=&date_debut_enlev=&date_fin_enlev=&date_debut_livraison=&date_fin_livraison=&date_debut_retour=&date_fin_retour=&id=0&nbr=1000&page='
+SECURE_URL='https://core.jax-delivery.com/api/colis?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL2NvcmUuamF4LWRlbGl2ZXJ5LmNvbS9hcGkvYXV0aC9sb2dpbiIsImlhdCI6MTcwNDM2MDA3NSwiZXhwIjoxNzA0NTA0MDc1LCJuYmYiOjE3MDQzNjAwNzUsImp0aSI6Inhwd0FOYkw4d0h4RGQzS3IiLCJzdWIiOiIyNzMiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.Xa-7jFD_sk7jhdv_O50Us6pKWVfNR7pSOyt_QaDUXgA&adresseLivraison=&cod=&code=&created_at=&depot=&is_echange=nonechange&description=&governorat=&nomContact=&referenceExterne=&statut_id=2&tel=&paye=&client_id=58&livre_par=mourad%20daldoul&verse=&date_debut_enlev=&date_fin_enlev=&date_debut_livraison=&date_fin_livraison=&date_debut_retour=&date_fin_retour=&id=0&nbr=25&page='
  
 URL = 'https://admin.jax-delivery.com/#'
 LOGIN_ROUTE=('https://core.jax-delivery.com/api/auth/login')
@@ -40,7 +40,7 @@ with requests.session() as s :
         index = [header.index(i) for i in ['created_by','status']]
         
 
-        with open("expistatu_recu_par_livré.csv", "a", newline="", encoding="utf-8") as csv_file:  # Use "a" to append to the file
+        with open("expistatu_recu_par_livré2.csv", "a", newline="", encoding="utf-8") as csv_file:  # Use "a" to append to the file
             Lheader = ['Expéditeur','status']
             csv_writer = csv.DictWriter(csv_file, fieldnames=Lheader)
             if page ==1:
